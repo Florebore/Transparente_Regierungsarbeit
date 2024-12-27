@@ -254,6 +254,21 @@ p.a {
     transform: rotate(180deg);
   }
 
+ .button:hover {
+            background: #d9d9d9;
+            }
+        .button {
+            text-decoration: none;
+            display: inline;
+            padding: 5px;
+            width: 120px;
+            font-size: 1em;
+            background: #afc7b5;
+            color: darkgreen;
+            font-weight: bold;
+            }
+
+
 
 /* styles page */
 /*

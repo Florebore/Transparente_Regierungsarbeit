@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2024.10.1/core.css">
-    <!-- This script tag bootstraps PyScript -->
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script>
-
+   <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- PyScript CSS -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+        <!-- This script tag bootstraps PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
      <!-- fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -247,6 +245,26 @@
                 </p>
             </div>
     </section>
+
+
+<br>
+<!-- Matplotlib für aktuelle Umfragen>
+<script type="module">
+            const loading = document.getElementById('loading');
+            addEventListener('py:ready', () => loading.close());
+            loading.showModal();
+</script>
+<dialog id="loading">
+     <h1>Loading...</h1>
+</dialog>-->
+<h1>Aktuelle Umfrageergebnisse</h1>
+ <section class="pyscript">
+            <div id="party_survey_mpl"></div>
+            <script type="py" src="./main.py" config="./pyscript.json"></script>
+   <button id="plot-button" py-click="se" class="button" style="">Umfrage anzeigen</button>
+</section>
+
+
 
   <section>
     <div class="container">
