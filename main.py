@@ -4,8 +4,6 @@ import matplotlib.tri as tri
 import matplotlib.dates as mdates
 from pyscript import document
 from pyscript import display
-import json
-import urllib.request
 
 
 def se(self):
@@ -22,11 +20,4 @@ def se(self):
     ax.legend()
     display(fig_party_survey, target="party_survey_mpl")
 
-def convert_json(String json):
 
-
-
-
-def get_request(String http):
-
-    contents = urllib.request.urlopen("http://example.com/foo/bar").read()
