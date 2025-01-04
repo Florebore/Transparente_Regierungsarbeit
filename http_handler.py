@@ -27,13 +27,16 @@ class http_handler:
         print(type(umfrage_data))
         print(umfrage_data.keys())
 
-        print(len(umfrage_data.get("Surveys").keys()))
+        umfrage_anzahl = len(umfrage_data.get("Surveys").keys())
         print(umfrage_data.get("Surveys").keys())
-        survey_dict = umfrage_data.get("Surveys").values()
+        survey_dict = umfrage_data.get("Surveys")
         survey_dict_keys = list(umfrage_data.get("Surveys").keys())
         print(survey_dict)
-        #for i from 1 to umfrage_data.get("Surveys").keys()):
-        print(survey_dict_keys [0])
+        i: int
+        for i in range(0,umfrage_anzahl-1):
+            if umfrage_data.get("Surveys").get(survey_dict_keys[i]).get("Parliament_ID") == "0":
+                print(survey_dict.get(survey_dict_keys[i]).get("Results"))
+
 
         return umfrage_data
 
