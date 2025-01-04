@@ -26,8 +26,14 @@ class http_handler:
         umfrage_data = json.loads(response.text)
         print(type(umfrage_data))
         print(umfrage_data.keys())
-        print(umfrage_data["Surveys"])
 
+        print(len(umfrage_data.get("Surveys").keys()))
+        print(umfrage_data.get("Surveys").keys())
+        survey_dict = umfrage_data.get("Surveys").values()
+        survey_dict_keys = list(umfrage_data.get("Surveys").keys())
+        print(survey_dict)
+        #for i from 1 to umfrage_data.get("Surveys").keys()):
+        print(survey_dict_keys [0])
 
         return umfrage_data
 
