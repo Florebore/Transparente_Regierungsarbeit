@@ -20,36 +20,48 @@ class http_handler:
         return umfrage_dic
 
 
+    @property
     def get_request(self):
 
+        #loading json string into a dictionary
         response = requests.get(self.url)
         umfrage_data = json.loads(response.text)
         print(type(umfrage_data))
-        print(umfrage_data.keys())
 
-        umfrage_anzahl = len(umfrage_data.get("Surveys").keys())
+        #results only relevant if Election is Bundestagswahl = "0"
         print(umfrage_data.get("Parliaments").get("0").get("Election"))
-        print(umfrage_data.get("Parties").keys())
-        party_anzahl = len(umfrage_data.get("Parties").keys())
-        print(party_anzahl)
+
+        #nur surveys werden extrahiert
         print(umfrage_data.get("Surveys").keys())
         survey_dict = umfrage_data.get("Surveys")
-        survey_dict_keys = list(umfrage_data.get("Surveys").keys())
-        print(survey_dict)
+
+        #party keys werden in Liste umgewandelt
+        party_dict_keys = list(umfrage_data.get("Parties").keys())
+        party_anzahl = len(umfrage_data.get("Parties").keys())
+        party_dict_keys.sort()
+        print(party_dict_keys)
+
+        #print names of parties if in survey / list of parties needs to be automated
+        for p in range(0,party_anzahl-1):
+           if party_dict_keys[p] in ["1","4","7"]:
+               print(umfrage_data.get("Parties").get(party_dict_keys[p]).get("Name"))
+
+
+        #reading result dictionaries from umfrage JSON und errechne einen Durchschnitt
         i: int
         o: int
-
+        umfrage_anzahl: int = len(umfrage_data.get("Surveys").keys())
+        survey_dict_keys = list(umfrage_data.get("Surveys").keys())
         for i in range(0,umfrage_anzahl-1):
             if umfrage_data.get("Surveys").get(survey_dict_keys[i]).get("Parliament_ID") == "0":
                 print(survey_dict.get(survey_dict_keys[i]).get("Results"))
-
 
         return umfrage_data
 
 
 
 i = http_handler("dawum")
-i.get_request()
+i.get_request
 
 
 
