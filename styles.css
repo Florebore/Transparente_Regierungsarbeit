@@ -59,11 +59,6 @@ header {
     padding: 20px;
 }
 
-main {
-    max-width: 800px;
-    margin: 20px auto;
-}
-
 .tiles-container {
     display: flex;
     flex-wrap: wrap;
@@ -72,18 +67,20 @@ main {
 
 .tile {
     flex: 1 0 300px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    background-color: #2a40da;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 10px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
 .tile:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
+.container-fluid{
+    background-color:#d4d1c6;
 
-
+}
 
 .btn-primary {
     --bs-btn-color: var(--bs-black);
@@ -147,6 +144,12 @@ body {
 }
 
 /* font size */
+h1 {
+    font-family: 'Aptos', sans-serif;
+    font-weight: lighter;
+    font-size: large;
+}
+
 h2,h3,h4,h5,h6 {
     font-weight: 700;
 }
@@ -233,7 +236,7 @@ p.a {
     background: var(--bs-yellow);
   }
   h5 button.accordion-button{
-    font-family: var(--body-font);
+      font-family: var(--body-font), sans-serif;
     background: var(--bs-yellow);
   }
   .accordion-button:focus {
