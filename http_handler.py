@@ -1,5 +1,7 @@
 import json
 import requests
+from collections import Counter
+import pandas as pd
 
 
 
@@ -41,6 +43,7 @@ class http_handler:
         party_dict_keys.sort()
         print(party_dict_keys)
 
+
         #print names of parties if in survey / list of parties needs to be automated
         for p in range(0,party_anzahl-1):
            if party_dict_keys[p] in ["1","4","7"]:
@@ -50,12 +53,26 @@ class http_handler:
         #reading result dictionaries from umfrage JSON und errechne einen Durchschnitt
         i: int
         o: int
+        bundestag_surveys = []
         umfrage_anzahl: int = len(umfrage_data.get("Surveys").keys())
         survey_dict_keys = list(umfrage_data.get("Surveys").keys())
         for i in range(0,umfrage_anzahl-1):
             if umfrage_data.get("Surveys").get(survey_dict_keys[i]).get("Parliament_ID") == "0":
                 print(survey_dict.get(survey_dict_keys[i]).get("Results"))
+                bundestag_surveys.append(survey_dict.get(survey_dict_keys[i]).get("Results"))
+                print(bundestag_surveys)
 
+        #sum of surveys
+        sum = bundestag_surveys
+        c = Counter()
+        for d in sum:
+            c.update(d)
+        print(c)
+
+        #average of surveys with pandas
+        df = pd.DataFrame(bundestag_surveys)
+        answer = dict(df.mean())
+        print(answer)
         return umfrage_data
 
 
