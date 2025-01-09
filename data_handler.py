@@ -1,80 +1,65 @@
-import json
-import requests
 from collections import Counter
+
 import pandas as pd
 
+from http_handler import http_handler
 
 
+class data_handler:
 
-class http_handler:
-
-
-    url = "https://api.dawum.de/newest_surveys.json"
+    survey_url = "https://api.dawum.de/newest_surveys.json"
 
     def __init__(self, name):
         self.name = name
 
+    def extract_mean_of_survey(self):
 
+        get_handler = http_handler("get")
 
-    @staticmethod
-    def get_request(url):
+        umfrage_data = get_handler.get_request(self.survey_url)
 
-        #loading json string into a dictionary
-        response = requests.get(url)
-        umfrage_data = json.loads(response.text)
-        print(type(umfrage_data))
-
-        return umfrage_data
-
-        #results only relevant if Election is Bundestagswahl = "0"
+        # results only relevant if Election is Bundestagswahl = "0"
         print(umfrage_data.get("Parliaments").get("0").get("Election"))
 
-        #nur surveys werden extrahiert
+        # nur surveys werden extrahiert
         print(umfrage_data.get("Surveys").keys())
         survey_dict = umfrage_data.get("Surveys")
 
-        #party keys werden in Liste umgewandelt
+        # party keys werden in Liste umgewandelt
         party_dict_keys = list(umfrage_data.get("Parties").keys())
         party_anzahl = len(umfrage_data.get("Parties").keys())
         party_dict_keys.sort()
         print(party_dict_keys)
 
+        # print names of parties if in survey / list of parties needs to be automated
+        for p in range(0, party_anzahl - 1):
+            if party_dict_keys[p] in ["1", "4", "7"]:
+                print(umfrage_data.get("Parties").get(party_dict_keys[p]).get("Name"))
 
-        #print names of parties if in survey / list of parties needs to be automated
-        for p in range(0,party_anzahl-1):
-           if party_dict_keys[p] in ["1","4","7"]:
-               print(umfrage_data.get("Parties").get(party_dict_keys[p]).get("Name"))
-
-
-        #reading result dictionaries from umfrage JSON und errechne einen Durchschnitt
+        # reading result dictionaries from umfrage JSON und errechne einen Durchschnitt
         i: int
         o: int
         bundestag_surveys = []
         umfrage_anzahl: int = len(umfrage_data.get("Surveys").keys())
         survey_dict_keys = list(umfrage_data.get("Surveys").keys())
-        for i in range(0,umfrage_anzahl-1):
+        for i in range(0, umfrage_anzahl - 1):
             if umfrage_data.get("Surveys").get(survey_dict_keys[i]).get("Parliament_ID") == "0":
                 print(survey_dict.get(survey_dict_keys[i]).get("Results"))
                 bundestag_surveys.append(survey_dict.get(survey_dict_keys[i]).get("Results"))
                 print(bundestag_surveys)
 
-        #sum of surveys
+        # sum of surveys
         sum = bundestag_surveys
         c = Counter()
         for d in sum:
             c.update(d)
         print(c)
 
-        #average of surveys with pandas
+        # average of surveys with pandas
         df = pd.DataFrame(bundestag_surveys)
         answer = dict(df.mean())
         print(answer)
-        return umfrage_data
 
 
-
-i = http_handler("dawum")
-i.get_request
-
-
-
+i = data_handler("mean")
+i.extract_mean_of_survey()
