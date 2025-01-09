@@ -51,9 +51,9 @@ body {
     padding: 0;
     background-color: #f5f5f5;
 }
-
+/*color of beam beneath top container*/
 header {
-    background-color: #333;
+    background-color: #031163;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -67,8 +67,8 @@ header {
 
 .tile {
     flex: 1 0 300px;
-    background-color: #2a40da;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: #05716c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
@@ -77,8 +77,10 @@ header {
 .tile:hover {
     transform: scale(1.02);
 }
+
+/*top container color*/
 .container-fluid{
-    background-color:#d4d1c6;
+    background-color:#1fbfb8;
 
 }
 
@@ -145,9 +147,9 @@ body {
 
 /* font size */
 h1 {
-    font-family: 'Aptos', sans-serif;
+    font-family: 'Karla ExtraLight', sans-serif;
     font-weight: lighter;
-    font-size: large;
+    font-size: 20px;
 }
 
 h2,h3,h4,h5,h6 {
