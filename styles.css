@@ -49,14 +49,14 @@ body {
     font-family: 'Aptos', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 }
-/*color of beam beneath top container*/
+/*color of beam beneath and above top container*/
 header {
     background-color: #031163;
-    color: #fff;
+    color: #1fbfb8;
     text-align: center;
-    padding: 20px;
+    padding: 0;
 }
 
 .tiles-container {
@@ -142,14 +142,14 @@ header {
 }
 
 body {
-    font-family: var(--body-font);
+    font-family: var(--body-font), sans-serif;
 }
 
 /* font size */
 h1 {
     font-family: 'Karla ExtraLight', sans-serif;
     font-weight: lighter;
-    font-size: 80px;
+    font-size: 60px;
 }
 
 h2,h3,h4,h5,h6 {
