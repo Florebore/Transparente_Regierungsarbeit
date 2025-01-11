@@ -2,32 +2,54 @@
 <head>
    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <!-- PyScript CSS -->
+    <!-- PyScript CSS -->
         <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
-        <!-- This script tag bootstraps PyScript -->
+    <!-- This script tag bootstraps PyScript -->
         <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
-     <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+    <!-- This tag refers to Plotly JS-->
+        <script src='https://cdn.plot.ly/plotly-latest.min.js' crossorigin="anonymous"></script>
+    <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 
-  <!--cdncss link-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <!--cdncss link-->
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="css/lightbox.min.css">
 
-  <link rel="stylesheet" href="css/lightbox.min.css">
+    <!--style sheet-->
+      <link rel="stylesheet" href="styles.css">
 
-  <!--style sheet-->
-  <link rel="stylesheet" href="styles.css">
+    <!--pyodide import-->
+
+
+     <!-- Bootstrap JavaScript Libraries -->
+  <script src="js/jquery-1.11.0.min.js"></script> <!-- jquery file-->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> <!--cdn link-->
+  <script src="js/plugins.js"></script>
+  <script type="text/javascript" src="js/lightbox.min.js"></script>
+
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+  <script src="js/script.js"></script>
 
 
 </head>
 <body>
-<script type="py" src="./main.py" config="./pyscript.json"></script>
+<!--<script type="py" src="./main.py" config="./pyscript.json"></script>-->
 
   <!--svg icons-->
   <svg>
@@ -199,7 +221,13 @@
       </div>
     </nav>
   </header>
-  <br>
+
+
+  <!--hier wird die Grafik angezeigt-->
+  <section class="py-script">
+  <div id="umfrage_graph"></div>
+  </section>
+
   <h1>Media Literacy Websites</h1>
   <br>
   <section class="tiles-container">
@@ -241,21 +269,13 @@
             </div>
     </section>
 
-<!-- Matplotlib für aktuelle Umfragen>
-<script type="module">
-            const loading = document.getElementById('loading');
-            addEventListener('py:ready', () => loading.close());
-            loading.showModal();
-</script>
-<dialog id="loading">
-     <h1>Loading...</h1>
-</dialog>-->
+<!-- Matplotlib für aktuelle Umfragen>-->
+
 <h1>Aktuelle Umfrageergebnisse</h1>
 <!--hier muss immer eine Referenz auf das script sein, siehe script type="py"-->
 <section class="pyscript">
             <div id="party_survey_mpl"></div>
-            <script type="py" src="./main.py" config="./pyscript.json"></script>
-   <button id="plot-button" py-click="se" class="button" style="">Umfrage anzeigen</button>
+  <button id="plot-button" py-click="se" class="button" style="">Umfrage anzeigen</button>
 </section>
 
   <section>
@@ -1007,6 +1027,3 @@
   <script src="js/script.js"></script>
 </body>
 
-</html>
-
-</body>
