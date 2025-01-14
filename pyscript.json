@@ -1,2 +1,10 @@
-{"packages": ["matplotlib","pandas","plotly"]
-}
+{"packages": ["matplotlib","pandas","plotly","requests"],
+  "files": {
+
+    "/data_handler.py": "./data_handler.py",
+    "/http_handler.py": "./http_handler.py"
+  }}
+
+
+
+
