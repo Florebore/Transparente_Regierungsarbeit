@@ -34,6 +34,11 @@ fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragen zur B
 fig.update_layout(
     xaxis_title="Befragungen",
     yaxis_title="Prozent",
+    legend_title="Parteien",
+    font=dict(
+        family="Roboto, monospace",
+        size=16
+    )
 )
 
 # Diagramm anzeigen (interaktiv)
