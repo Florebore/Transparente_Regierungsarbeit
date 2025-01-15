@@ -29,8 +29,12 @@ print(df.index)
 print(df)
 
 # Erstellen eines interaktiven Scatterplots
-fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragewerte")
+fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragen zur Bundestagswahl")
 #Hier muss Grafik geupdated werden
+fig.update_layout(
+    xaxis_title="Befragungen",
+    yaxis_title="Prozent",
+)
 
 # Diagramm anzeigen (interaktiv)
 display(fig, target="umfrage_graph")
