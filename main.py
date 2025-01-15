@@ -30,7 +30,7 @@ print(df)
 
 # Erstellen eines interaktiven Scatterplots
 fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragewerte")
-
+#Hier muss Grafik geupdated werden
 
 # Diagramm anzeigen (interaktiv)
 display(fig, target="umfrage_graph")
