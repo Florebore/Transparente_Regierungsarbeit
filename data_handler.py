@@ -1,9 +1,5 @@
 from collections import Counter
-from idlelib.iomenu import errors
-
 import pandas as pd
-from urllib3.util.util import to_str
-
 from http_handler import http_handler
 
 
@@ -85,4 +81,4 @@ class data_handler:
 
 
 i = data_handler("mean")
-i.extract_mean_of_survey
+i.extract_mean_of_survey(i)

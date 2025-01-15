@@ -8,6 +8,8 @@ import plotly.express as px
 import js
 import pyodide
 from pyodide.http import pyfetch
+
+from data_handler import data_handler
 from pyscript import document
 from pyscript import display
 from http_handler import http_handler
@@ -21,11 +23,14 @@ from http_handler import http_handler
 
 
 # Iris-Daten aus Plotly Express laden
-umfrage_handler = http_handler("umfragewerte")
-df = umfrage_handler.get_request(umfrage_handler.url)
+umfrage_handler = data_handler("umfragewerte")
+df = umfrage_handler.extract_mean_of_survey(umfrage_handler)
+print(df.index)
+print(df)
 
 # Erstellen eines interaktiven Scatterplots
-fig = px.scatter(df, x='test', y='test', title="Aktuelle Umfragewerte")
+fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragewerte")
+
 
 # Diagramm anzeigen (interaktiv)
 display(fig, target="umfrage_graph")
