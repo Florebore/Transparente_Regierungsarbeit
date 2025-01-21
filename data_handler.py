@@ -53,12 +53,7 @@ class data_handler:
         party_anzahl = len(umfrage_data.get("Parties").keys())
         party_dict_keys.sort()
 
-        # print names of parties if in survey / list of parties needs to be automated / this was just a test
-        #for p in range(0, party_anzahl - 1):
-            #if party_dict_keys[p] in ["1", "4", "7"]:
-                #print(umfrage_data.get("Parties").get(party_dict_keys[p]).get("Name"))
-
-        # reading result dictionaries from umfrage JSON and put all the results into a list of dictionaries
+               # reading result dictionaries from umfrage JSON and put all the results into a list of dictionaries
         i: int
         o: int
         bundestag_surveys = []
@@ -86,6 +81,9 @@ class data_handler:
         e: int
         for e in range (0,len(df1_line_list)):
             df1.rename(index={df1_line_list[e]:umfrage_data.get("Parties").get(df1_line_list[e]).get("Name")}, inplace=True)
+        #convert columns to Datetime
+        pd.to_datetime(df1.columns)
+        df1 = df1.transpose()
 
         # average of surveys with pandas / The result list of JSON from Dawum is
         df = pd.DataFrame(bundestag_surveys)
@@ -103,7 +101,7 @@ class data_handler:
         print(df.columns.values)
         print(answer)
 
-        return df
+        return df1
 
 
 i = data_handler("mean")

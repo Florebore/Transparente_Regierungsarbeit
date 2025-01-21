@@ -28,16 +28,35 @@ df = umfrage_handler.extract_mean_of_survey(umfrage_handler)
 print(df.index)
 print(df)
 
+# Erstellen eines interaktiven Scatterplots1
+#fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragen zur Bundestagswahl")
+#Hier muss Grafik geupdated werden
+#fig.update_layout(
+#    xaxis_title="Befragungen",
+#    yaxis_title="Prozent",
+#    legend_title="Parteien",
+#    font=dict(
+#        family="Roboto, monospace",
+#        size=16
+#    )
+#)
+
+# Diagramm anzeigen (interaktiv)
+#display(fig, target="umfrage_graph")
+
 # Erstellen eines interaktiven Scatterplots
-fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragen zur Bundestagswahl")
+fig = px.line(df, title="Aktuelle Umfragen zur Bundestagswahl")
 #Hier muss Grafik geupdated werden
 fig.update_layout(
+    width=1500,
+    height=800,
+    paper_bgcolor="LightSteelBlue",
     xaxis_title="Befragungen",
     yaxis_title="Prozent",
     legend_title="Parteien",
     font=dict(
         family="Roboto, monospace",
-        size=16
+        size=12
     )
 )
 
