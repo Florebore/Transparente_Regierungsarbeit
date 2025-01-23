@@ -38,7 +38,14 @@ print(df)
 #display(fig, target="umfrage_graph")
 
 # Erstellen eines interaktiven Scatterplots
-fig = px.line(df)
+fig = px.line(df,
+              color_discrete_map={  # replaces default color mapping by value
+                  "Christlich Demokratische Union / Christlich-Soziale Union": "#222A2A",
+                  "Alternative für Deutschland": "blue", "Sozialdemokratische Partei Deutschlands": "red",
+                  "Bündnis 90/Die Grünen": "green", "sonstige Parteien": "grey", "Bündnis Sahra Wagenknecht": "purple",
+                  "Freie Demokratische Partei": "yellow", "Die Linke": "magenta",
+                  "Freie Wähler": "#3366CC"}
+              )
 
 #Hier muss Grafik geupdated werden, um das Design zu ändern
 fig.update_layout(
