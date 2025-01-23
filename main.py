@@ -6,23 +6,16 @@ import json
 import pandas as pd
 import plotly.express as px
 import js
-import pyodide
-from pyodide.http import pyfetch
-
 from data_handler import data_handler
 from pyscript import document
 from pyscript import display
 from http_handler import http_handler
 
-#IMPORTANT - All classes and packages used in the pythin files must be included in the pyscript.json file
+#IMPORTANT - All classes and packages used in the python files must be included in the pyscript.json file
 #see file and packages in pyscript.json
 
 
-
-
-
-
-# Iris-Daten aus Plotly Express laden
+# Umfragedaten aus Plotly Express laden
 umfrage_handler = data_handler("umfragewerte")
 df = umfrage_handler.extract_mean_of_survey(umfrage_handler)
 print(df.index)
@@ -45,19 +38,37 @@ print(df)
 #display(fig, target="umfrage_graph")
 
 # Erstellen eines interaktiven Scatterplots
-fig = px.line(df, title="Aktuelle Umfragen zur Bundestagswahl")
-#Hier muss Grafik geupdated werden
+fig = px.line(df)
+
+#Hier muss Grafik geupdated werden, um das Design zu ändern
 fig.update_layout(
-    width=1500,
-    height=800,
-    paper_bgcolor="LightSteelBlue",
+font={"family": "Roboto, sans-serif", "size": 14},  # Font settings
+    colorway=["#6200EA", "#03DAC5", "#018786", "#B00020"],  # Material Design colors
+    paper_bgcolor="#F5F5F5",  # Background for the entire figure
+    plot_bgcolor="#FFFFFF",  # Background for the chart area
+    xaxis={
+        "gridcolor": "#E0E0E0",  # Light gray gridlines
+        "zerolinecolor": "#E0E0E0",  # Zero line color
+        "title_font": {"size": 16},  # Font size for x-axis title
+    },
+    yaxis={
+        "gridcolor": "#E0E0E0",  # Light gray gridlines
+        "zerolinecolor": "#E0E0E0",  # Zero line color
+        "title_font": {"size": 16},  # Font size for y-axis title
+    },
+    legend={
+        "bgcolor": "rgba(255,255,255,0.8)",  # Semi-transparent legend background
+        "bordercolor": "#E0E0E0",  # Light gray border for the legend
+    },
+    hovermode="x unified",  # Single hover label for x-axis
+    hoverlabel={"font_size": 12, "font_family": "Roboto"},  # Hover font styling
+    margin=dict(l=40, r=40, t=80, b=40),  # Adjust margins for clean spacing
+    width=1400,
+    height=700,
     xaxis_title="Befragungen",
     yaxis_title="Prozent",
     legend_title="Parteien",
-    font=dict(
-        family="Roboto, monospace",
-        size=12
-    )
+
 )
 
 # Diagramm anzeigen (interaktiv)
