@@ -69,13 +69,25 @@ font={"family": "Roboto, sans-serif", "size": 14},  # Font settings
     },
     hovermode="x unified",  # Single hover label for x-axis
     hoverlabel={"font_size": 12, "font_family": "Roboto"},  # Hover font styling
-    margin=dict(l=40, r=40, t=80, b=40),  # Adjust margins for clean spacing
-    width=1350,
-    height=700,
+    margin=dict(l=20, r=20, t=40, b=20),  # Adjust margins for clean spacing
+    width=1750,
+    height=500,
     xaxis_title="Befragungen",
     yaxis_title="Prozent",
     legend_title="Parteien",
 
+)
+
+# Example annotation for key insights
+fig.add_annotation(
+    x="2024-12-20",  # Replace with your data value
+    y=30,  # Replace with your data value
+    text="Beginn des Trends",
+    showarrow=True,
+    arrowhead=2,
+    arrowsize=1,
+    arrowcolor="#6200EA",
+    font={"color": "#222A2A", "size": 14}
 )
 
 # Diagramm anzeigen (interaktiv)

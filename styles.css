@@ -50,9 +50,12 @@ header {
     color: var(--bs-light);
     text-align: center;
     padding: 24px;
+    height: 25px;
     font-size: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
+
+.navbar {height: 150px}
 
 /* ==================================
    Tiles / Grid Container

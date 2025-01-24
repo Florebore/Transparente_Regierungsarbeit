@@ -100,7 +100,9 @@ class data_handler:
         print(df)
         print(df.columns.values)
         print(answer)
-
+        #deletes the last survey because of being outdated
+        df1.drop(df1.tail(3).index, inplace=True)
+        print(df1)
         return df1
 
 
