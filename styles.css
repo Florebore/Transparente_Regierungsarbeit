@@ -1,163 +1,214 @@
+/* ==================================
+   Root Variables
+   ================================== */
+/* Core font and color settings */
 :root {
-    --body-font: "Roboto", sans-serif;
+    --body-font: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --bs-btn-font-family: var(--body-font);
 
     /* Colors */
-    --bs-primary: #6200EA; /* Material Design Purple */
-    --bs-secondary: #03DAC5; /* Material Design Teal */
-    --bs-accent: #F5F5F5; /* Light gray for backgrounds */
-    --bs-light: #FFFFFF; /* Pure white */
+    --bs-primary: #6200EA; /* Material Design Purple for primary highlights */
+    --bs-secondary: #03DAC5; /* Material Design Teal for secondary accents */
+    --bs-accent: #F5F5F5; /* Light gray for subtle backgrounds */
+    --bs-light: #FFFFFF; /* Pure white for light themes */
     --bs-dark: #121212; /* Dark gray for dark themes */
-    --bs-gray: #9E9E9E; /* Neutral gray */
+    --bs-gray: #9E9E9E; /* Neutral gray for text or muted elements */
 
-    --bs-link-color: var(--bs-secondary);
-    --bs-link-hover-color: var(--bs-primary);
+    --bs-link-color: var(--bs-secondary); /* Default link color */
+    --bs-link-hover-color: var(--bs-primary); /* Hover state for links */
 
-    --bs-body-color: var(--bs-dark);
-    --bs-info: #E0E0E0;
+    --bs-body-color: var(--bs-dark); /* Default body text color */
+    --bs-info: #E0E0E0; /* Light background info color */
 
-    --swiper-pagination-color: var(--bs-secondary);
+    --swiper-pagination-color: var(--bs-secondary); /* Swiper pagination indicator color */
+
+    /* Spacing variables */
+    --spacing-small: 8px; /* Small spacing */
+    --spacing-medium: 16px; /* Medium spacing */
+    --spacing-large: 24px; /* Large spacing */
 }
 
+/* ==================================
+   Global Body Styling
+   ================================== */
+/* Basic layout and typography */
 body {
     font-family: var(--body-font);
     margin: 0;
-    padding: 0;
-    background-color: var(--bs-light);
-    color: var(--bs-body-color);
-    line-height: 1.5;
+    padding: var(--spacing-large);
+    background-color: var(--bs-light); /* Light background */
+    color: var(--bs-body-color); /* Dark text */
+    line-height: 1.5; /* Improved readability */
 }
 
+/* ==================================
+   Header
+   ================================== */
+/* Centralized banner with shadow */
 header {
     background-color: var(--bs-primary);
     color: var(--bs-light);
     text-align: center;
     padding: 24px;
     font-size: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
+/* ==================================
+   Tiles / Grid Container
+   ================================== */
+/* Responsive grid layout for tiles */
 .tiles-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    margin: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit tiles based on screen size */
+    gap: 16px; /* Space between tiles */
+    margin: var(--spacing-large);
 }
 
+/* Individual tiles with hover effects */
 .tile {
-    flex: 1 0 300px;
     background: var(--bs-light);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    border-radius: 4px;
-    transition: transform 0.2s ease, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: var(--spacing-medium);
+    border-radius: 4px; /* Rounded corners */
+    transition: transform 0.2s ease, box-shadow 0.2s; /* Smooth hover effect */
     text-align: left;
+    animation: fadeIn 0.3s ease-in-out; /* Fade-in animation */
 }
 
 .tile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px); /* Slight lift on hover */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
 }
 
-.container-fluid {
-    background-color: var(--bs-accent);
-    padding: 32px;
-}
-
+/* ==================================
+   Buttons
+   ================================== */
+/* Primary button with smooth hover effects */
 .btn-primary {
-    color: var(--bs-light);
-    background-color: var(--bs-secondary);
+    color: var(--bs-light); /* White text */
+    background-color: var(--bs-secondary); /* Teal background */
     border: none;
     padding: 12px 24px;
     border-radius: 4px;
     font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-transform: uppercase;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    text-transform: uppercase; /* Capitalized text for emphasis */
 }
 
 .btn-primary:hover {
-    background-color: var(--bs-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: var(--bs-primary); /* Purple hover effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
 }
 
+/* Focus state for keyboard navigation */
+.btn-primary:focus {
+    outline: 3px solid var(--bs-secondary); /* Teal outline */
+    outline-offset: 2px;
+}
+
+/* Outlined button variant */
+.btn-outline-primary {
+    color: var(--bs-primary); /* Purple text */
+    background-color: transparent; /* No background */
+    border: 2px solid var(--bs-primary); /* Purple border */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--bs-primary); /* Purple fill */
+    color: var(--bs-light); /* White text */
+}
+
+/* ==================================
+   Pagination
+   ================================== */
+/* Centralized pagination with active and hover effects */
 .pagination {
     display: flex;
     padding: 0;
-    list-style: none;
+    list-style: none; /* Remove default bullet points */
     justify-content: center;
-    margin: 24px 0;
+    margin: var(--spacing-large) 0;
 }
 
 .page-link {
-    color: var(--bs-dark);
+    color: var(--bs-dark); /* Default dark text */
     padding: 8px 16px;
     margin: 0 4px;
-    border-radius: 50%;
+    border-radius: 50%; /* Circular buttons */
     transition: background-color 0.2s, color 0.2s;
 }
 
 .page-link:hover {
-    color: var(--bs-light);
-    background-color: var(--bs-secondary);
+    color: var(--bs-light); /* White text */
+    background-color: var(--bs-secondary); /* Teal background */
 }
 
 .active > .page-link {
-    color: var(--bs-light);
-    background-color: var(--bs-primary);
-    font-weight: 700;
+    color: var(--bs-light); /* White text */
+    background-color: var(--bs-primary); /* Purple background */
+    font-weight: 700; /* Bold for emphasis */
 }
 
-.navbar-nav .nav-link:hover {
-    color: var(--bs-secondary) !important;
-    text-decoration: underline;
-}
-
+/* ==================================
+   Typography (Headings and Text)
+   ================================== */
 h1 {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--body-font);
     font-weight: 500;
     font-size: 40px;
     line-height: 1.3;
-    color: var(--bs-primary);
+    color: var(--bs-primary); /* Purple text */
     text-align: left;
     margin: 20px 0;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.5px; /* Slightly spaced letters */
     padding-left: 10px;
 }
 
+/* Subheadings */
 h2, h3, h4, h5, h6 {
     font-weight: 400;
-    color: var(--bs-primary);
+    color: var(--bs-primary); /* Purple text */
 }
 
+/* Display headings for emphasis */
 .display-1 {
-    font-size: 4.5rem;
+    font-size: 4.5rem; /* Large font size */
     font-weight: 400;
     line-height: 1;
-    color: var(--bs-dark);
+    color: var(--bs-dark); /* Dark text */
 }
 
+/* ==================================
+   Testimonial Cards
+   ================================== */
 .testimonial-card {
     background: var(--bs-light);
     color: var(--bs-dark);
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-large);
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .testimonial-card .postd {
-    color: var(--bs-gray);
-    font-style: italic;
+    color: var(--bs-gray); /* Muted gray text */
+    font-style: italic; /* Italics for emphasis */
 }
 
+/* ==================================
+   Accordion
+   ================================== */
+/* Accordion styling for collapsible sections */
 .accordion-item {
     background: var(--bs-light);
-    border-radius: 4px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: var(--spacing-medium); /* Space between items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* Accordion button interactions */
 .accordion-button {
     font-family: var(--body-font);
     background: var(--bs-light);
@@ -170,36 +221,52 @@ h2, h3, h4, h5, h6 {
 }
 
 .accordion-button:not(.collapsed) {
-    background: var(--bs-accent);
-    transform: rotate(180deg);
+    background: var(--bs-accent); /* Light gray background when expanded */
+    transform: rotate(180deg); /* Rotate icon */
 }
 
-.button {
-    display: inline-block;
-    padding: 12px 24px;
-    background: var(--bs-primary);
-    color: var(--bs-light);
-    font-weight: 500;
-    border-radius: 4px;
-    transition: background-color 0.3s, transform 0.2s;
-    text-align: center;
-    text-decoration: none;
+/* Focus state for accessibility */
+.accordion-button:focus {
+    outline: 3px solid var(--bs-secondary); /* Teal outline */
+    outline-offset: 2px;
 }
 
-.button:hover {
-    background: var(--bs-secondary);
-    transform: translateY(-2px);
-}
-
-@media (min-width: 1200px) {
-    .container, .container-lg, .container-md, .container-sm, .container-xl {
-        max-width: 1280px;
+/* ==================================
+   Animations
+   ================================== */
+/* Smooth fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.hr {
-    border-radius: 2px;
-    margin: 24px 0;
-    border-width: 2px;
-    border-color: var(--bs-secondary);
+/* ==================================
+   Responsive Design
+   ================================== */
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1280px; /* Larger containers for desktops */
+    }
 }
+
+@media (max-width: 768px) {
+    .tile, .testimonial-card {
+        box-shadow: none; /* Disable shadows for mobile performance */
+    }
+}
+
+/* ==================================
+   Utility Classes
+   ================================== */
+/* Reusable spacing and alignment utilities */
+.mt-4 { margin-top: 16px; }
+.mb-4 { margin-bottom: 16px; }
+.text-center { text-align: center; }
+.text-end { text-align: end; }
+.hidden { display: none !important; }

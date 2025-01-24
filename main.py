@@ -70,7 +70,7 @@ font={"family": "Roboto, sans-serif", "size": 14},  # Font settings
     hovermode="x unified",  # Single hover label for x-axis
     hoverlabel={"font_size": 12, "font_family": "Roboto"},  # Hover font styling
     margin=dict(l=40, r=40, t=80, b=40),  # Adjust margins for clean spacing
-    width=1400,
+    width=1350,
     height=700,
     xaxis_title="Befragungen",
     yaxis_title="Prozent",
