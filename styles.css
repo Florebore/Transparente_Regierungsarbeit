@@ -35,7 +35,7 @@
 body {
     font-family: var(--body-font);
     margin: 0;
-    padding: var(--spacing-large);
+    padding-top: 150px;
     background-color: var(--bs-light); /* Light background */
     color: var(--bs-body-color); /* Dark text */
     line-height: 1.5; /* Improved readability */
@@ -51,6 +51,7 @@ header {
     text-align: center;
     padding: 24px;
     height: 25px;
+    position: sticky;
     font-size: 1.5rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }

@@ -18,8 +18,6 @@ from http_handler import http_handler
 # Umfragedaten aus Plotly Express laden
 umfrage_handler = data_handler("umfragewerte")
 df = umfrage_handler.extract_mean_of_survey(umfrage_handler)
-print(df.index)
-print(df)
 
 # Erstellen eines interaktiven Scatterplots1
 #fig = px.scatter(df, x= df.index, y= df.columns , title="Aktuelle Umfragen zur Bundestagswahl")
@@ -38,12 +36,11 @@ print(df)
 #display(fig, target="umfrage_graph")
 
 # Erstellen eines interaktiven Scatterplots
-fig = px.line(df,
-              color_discrete_map={  # replaces default color mapping by value
-                  "Christlich Demokratische Union / Christlich-Soziale Union": "#222A2A",
-                  "Alternative für Deutschland": "blue", "Sozialdemokratische Partei Deutschlands": "red",
+fig = px.line(df, markers= True, color_discrete_map ={  # replaces default color mapping by value
+                 "Christlich Demokratische Union / Christlich-Soziale Union": "#222A2A",
+                "Alternative für Deutschland": "blue", "Sozialdemokratische Partei Deutschlands": "red",
                   "Bündnis 90/Die Grünen": "green", "sonstige Parteien": "grey", "Bündnis Sahra Wagenknecht": "purple",
-                  "Freie Demokratische Partei": "yellow", "Die Linke": "magenta",
+                 "Freie Demokratische Partei": "yellow", "Die Linke": "magenta",
                   "Freie Wähler": "#3366CC"}
               )
 
@@ -70,29 +67,29 @@ font={"family": "Roboto, sans-serif", "size": 14},  # Font settings
     hovermode="x unified",  # Single hover label for x-axis
     hoverlabel={"font_size": 12, "font_family": "Roboto"},  # Hover font styling
     margin=dict(l=20, r=20, t=40, b=20),  # Adjust margins for clean spacing
-    width=1750,
+    width=1500,
     height=500,
     xaxis_title="Befragungen",
     yaxis_title="Prozent",
-    legend_title="Parteien",
+    legend_title="Parteien"
 
 )
+
 
 # Example annotation for key insights
-fig.add_annotation(
-    x="2024-12-20",  # Replace with your data value
-    y=30,  # Replace with your data value
-    text="Beginn des Trends",
-    showarrow=True,
-    arrowhead=2,
-    arrowsize=1,
-    arrowcolor="#6200EA",
-    font={"color": "#222A2A", "size": 14}
-)
+#fig.add_annotation(
+#    x="2024-12-20",  # Replace with your data value
+#    y=30,  # Replace with your data value
+#    text="Beginn des Trends",
+#    showarrow=True,
+#    arrowhead=2,
+#    arrowsize=1,
+#    arrowcolor="#6200EA",
+#    font={"color": "#222A2A", "size": 14}
+#)
 
 # Diagramm anzeigen (interaktiv)
 display(fig, target="umfrage_graph")
-
 
 
 #Button Change test an test of Matpolotlib in combination with button click

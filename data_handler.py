@@ -1,5 +1,6 @@
 from collections import Counter
 import pandas as pd
+
 from http_handler import http_handler
 
 
@@ -32,7 +33,9 @@ class data_handler:
             print(y)
         #creates a dictionary of x and y
         institute_dictionary = dict(zip(x,y))
-        print(institute_dictionary)
+        df_institutes = pd.DataFrame.from_dict(institute_dictionary, orient = 'index')
+        print(df_institutes)
+        return df_institutes
 
     @staticmethod
     def extract_mean_of_survey(self):
@@ -84,25 +87,44 @@ class data_handler:
         #convert columns to Datetime
         pd.to_datetime(df1.columns)
         df1 = df1.transpose()
+        # df1 = df1.rename_axis('Partei').reset_index()
+        #df1.set_index('Partei', inplace=True)
+        #df1 = df1.melt(id_vars=['Partei'], var_name='Datum', value_name='Prozent')
+        #df1.set_index('Partei',inplace=True)
 
         # average of surveys with pandas / The result list of JSON from Dawum is
         df = pd.DataFrame(bundestag_surveys)
 
         #answer ist das Mittel aller Abfragen
-        answer = dict(df.mean())
+        #answer = dict(df.mean())
 
         #label columns with Party names
-        k = df_columns_list = df.columns.to_list()
+        df_columns_list = df.columns.to_list()
         c: int
         for c in range(0,len(df_columns_list)):
             df.rename(columns={df_columns_list[c]:umfrage_data.get("Parties").get(df_columns_list[c]).get("Name")}, inplace=True)
-        print(df1)
-        print(df)
-        print(df.columns.values)
-        print(answer)
-        #deletes the last survey because of being outdated
-        df1.drop(df1.tail(3).index, inplace=True)
-        print(df1)
+        #print(df1)
+        #print(df)
+        #print(df.columns.values)
+        #print(df1.columns.values)
+        # add institutes to Dataframe
+        #dfi = self.extract_institutes(self)
+
+
+        #df1 und dfi anpassen
+        #df1.drop(df1.tail(1).index, inplace=True)
+        #dfi.drop(dfi.tail(13).index, inplace=True)
+        #print(len(df1.index))
+        #print(len(dfi.index))
+        #hier weitermachen
+        #rows, columns = dfi.shape
+        #print(f"Number of rows: {rows}, Number of columns: {columns}")
+        #rows_1, columns_1 = df1.shape
+        #print(f"Number of rows: {rows_1}, Number of columns: {columns_1}")
+        #Hier werden die Werte der Institute in die letzte Spalte geschrieben
+        #df1.insert(len(df1.columns),'Institute', dfi[0].values)
+        #Potentiell eine Möglichkeit das Datum in eine eigene column zu schrieben
+        print(df1.to_string())
         return df1
 
 
