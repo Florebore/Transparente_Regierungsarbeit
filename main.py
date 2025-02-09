@@ -35,6 +35,10 @@ df = umfrage_handler.extract_mean_of_survey(umfrage_handler)
 # Diagramm anzeigen (interaktiv)
 #display(fig, target="umfrage_graph")
 
+document.getElementById("spinner_plotly").style.display = "block"
+document.getElementById("loading_message").style.display = "block"
+document.getElementById("umfrage_graph").style.display = "none"
+
 # Erstellen eines interaktiven Scatterplots
 fig = px.line(df, markers= True, color_discrete_map ={  # replaces default color mapping by value
                  "Christlich Demokratische Union / Christlich-Soziale Union": "#222A2A",
@@ -76,6 +80,9 @@ font={"family": "Roboto, sans-serif", "size": 14},  # Font settings
 )
 
 
+
+
+
 # Example annotation for key insights
 #fig.add_annotation(
 #    x="2024-12-20",  # Replace with your data value
@@ -91,6 +98,10 @@ font={"family": "Roboto, sans-serif", "size": 14},  # Font settings
 # Diagramm anzeigen (interaktiv)
 display(fig, target="umfrage_graph")
 
+#Anzeigen des Plots, ausblenden loading
+document.getElementById("spinner_plotly").style.display = "none"
+document.getElementById("loading_message").style.display = "none"
+document.getElementById("umfrage_graph").style.display = "block"
 
 #Button Change test an test of Matpolotlib in combination with button click
 def se(self):

@@ -112,7 +112,7 @@ class data_handler:
 
 
         #df1 und dfi anpassen
-        #df1.drop(df1.tail(1).index, inplace=True)
+        df1.drop(df1.tail(2).index, inplace=True)
         #dfi.drop(dfi.tail(13).index, inplace=True)
         #print(len(df1.index))
         #print(len(dfi.index))
@@ -124,6 +124,7 @@ class data_handler:
         #Hier werden die Werte der Institute in die letzte Spalte geschrieben
         #df1.insert(len(df1.columns),'Institute', dfi[0].values)
         #Potentiell eine Möglichkeit das Datum in eine eigene column zu schrieben
+
         print(df1.to_string())
         return df1
 
