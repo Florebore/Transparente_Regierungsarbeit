@@ -5,7 +5,6 @@ import matplotlib.dates as mdates
 import json
 import pandas as pd
 import plotly.express as px
-import js
 from data_handler import data_handler
 from pyscript import document
 from pyscript import display

@@ -3,9 +3,9 @@
    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=0.8">
     <!-- PyScript CSS -->
-        <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.1/core.css">
     <!-- This script tag bootstraps PyScript -->
-        <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+        <script type="module" src="https://pyscript.net/releases/2025.2.1/core.js"></script>
     <!-- This tag refers to Plotly JS-->
     <script src="https://cdn.plot.ly/plotly-3.0.0.min.js" charset="utf-8"></script>
     <!--Fonts-->
@@ -50,15 +50,13 @@
 </head>
 <body>
 
-<script type="py" src="./main.py" config="./pyscript.json"></script>
-
  <header id="top" class="position-sticky top-0 start-0" style="z-index:10;">
     <nav class="navbar bg-white fixed-top">
       <div class="container-fluid">
         <div class="d-flex align-items-center g-4">
           <a class="navbar-brand d-flex" href="index.html">
-            <img src="img/Logo_TRA.png" class="img-fluid" id="logo" height="150"
-                                                         width="150"></a>
+            <img src="img/Logo_TRA.png" class="img-fluid" id="logo" height="120"
+                                                         width="120"></a>
           <div class="icon px-5">
             <a href="#" class="text-decoration-none">
               <svg class="skype" width="24" height="24">
@@ -164,12 +162,14 @@
   </header>
 
   <hr>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
   <h1>Aktuelle Umfragen zur Bundestagswahl</h1>
   <!--hier wird die Grafik angezeigt, nachdem geladen wurde-->
   <div class="loader" id="spinner_plotly"></div>
     <div class ="loading_message" id="loading_message">Plot loading...</div>
   <section class="py-script">
       <div id="umfrage_graph"></div>
+
   </section>
   <hr>
 
