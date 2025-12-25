@@ -11,6 +11,7 @@
 }
 
 body {
+  padding-top: 150px;
   background-color: var(--background-color);
   color: var(--on-background-color);
   font-family: 'Work Sans', sans-serif;
