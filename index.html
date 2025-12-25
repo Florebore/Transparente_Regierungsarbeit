@@ -3,11 +3,11 @@
    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=0.8">
     <!-- PyScript CSS -->
-        <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.1/core.css">
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css">
     <!-- This script tag bootstraps PyScript -->
-        <script type="module" src="https://pyscript.net/releases/2025.2.1/core.js"></script>
+        <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
     <!-- This tag refers to Plotly JS-->
-    <script src="https://cdn.plot.ly/plotly-3.0.0.min.js" charset="utf-8"></script>
+    <script src="https://cdn.plot.ly/plotly-3.3.1.min.js" charset="utf-8"></script>
     <!--Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
 
     <!--cdncss link-->
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="css/lightbox.min.css">
+
 
     <!--style sheet-->
       <link rel="stylesheet" href="styles.css">
@@ -29,7 +29,6 @@
 
 
      <!-- Bootstrap JavaScript Libraries -->
-  <script src="js/jquery-1.11.0.min.js"></script> <!-- jquery file-->
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -40,76 +39,20 @@
     crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script> <!--cdn link-->
-  <script src="js/plugins.js"></script>
-  <script type="text/javascript" src="js/lightbox.min.js"></script>
-
   <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-  <script src="js/script.js"></script>
 
 
+
+<title>Aktuelle Umfragen zur Bundestagswahl</title>
 </head>
 <body>
 
  <header id="top" class="position-sticky top-0 start-0" style="z-index:10;">
-    <nav class="navbar bg-white fixed-top">
+    <nav class="navbar fixed-top">
       <div class="container-fluid">
-        <div class="d-flex align-items-center g-4">
-          <a class="navbar-brand d-flex" href="index.html">
-            <img src="img/Logo_TRA.png" class="img-fluid" id="logo" height="120"
-                                                         width="120"></a>
-          <div class="icon px-5">
-            <a href="#" class="text-decoration-none">
-              <svg class="skype" width="24" height="24">
-                <use xlink:href="#skype"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="snapchat" width="24" height="24">
-                <use xlink:href="#snapchat"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="telegram" width="24" height="24">
-                <use xlink:href="#telegram"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="tumblr" width="24" height="24">
-                <use xlink:href="#tumblr"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="twitter" width="24" height="24">
-                <use xlink:href="#twitter"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="whatsapp" width="24" height="24">
-                <use xlink:href="#whatsapp"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="github" width="24" height="24">
-                <use xlink:href="#github"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="facebook" width="24" height="24">
-                <use xlink:href="#facebook"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="messenger" width="24" height="24">
-                <use xlink:href="#messenger"></use>
-              </svg>
-            </a>
-            <a href="#" class="text-decoration-none">
-              <svg class="behance" width="24" height="24">
-                <use xlink:href="#behance"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
+        <a class="navbar-brand d-flex" href="index.html">
+          <img src="img/Logo_TRA.png" class="img-fluid" id="logo" height="120" width="120" alt="Logo">
+        </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navabar-toggler-icon">
@@ -131,7 +74,6 @@
               <li class="nav-item">
                 <a class="nav-link text-uppercase ls-4 text-white" aria-current="page" href="portfolio.html">Parteienübersicht
                 </a>
-              </li>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-uppercase ls-4 text-white" aria-current="page" href="single-portfolio.html"> Aktuelle Politik
@@ -161,76 +103,99 @@
     </nav>
   </header>
 
-  <hr>
-    <script type="py" src="./main.py" config="./pyscript.json"></script>
-  <h1>Aktuelle Umfragen zur Bundestagswahl</h1>
-  <!--hier wird die Grafik angezeigt, nachdem geladen wurde-->
-  <div class="loader" id="spinner_plotly"></div>
-    <div class ="loading_message" id="loading_message">Plot loading...</div>
-  <section class="py-script">
-      <div id="umfrage_graph"></div>
-
-  </section>
-  <hr>
-
-  <h1>Media Literacy Websites</h1>
-  <br>
-  <section class="tiles-container">
-            <div class="tile">
-                 <p>
-                  <a href="https://www.getbadnews.com/en#intro">
-                     <img src="img/Bad_news.png" height="190" width="207" alt=""/>
-                   </a>
-                 </p>
-               From fake news to chaos! How bad are you? Get as many followers as you can.
-            </div>
-            <div class="tile">
-              <p>
-              <a href="https://pudding.cool/">
-                     <img src="img/pudding.png" height="190" width="207" alt=""/>
-                </a>
-              </p>
-              Visual essays are an emerging form of journalism. Some of the most complex, debated topics get lost in “too long; didn’t read” 10,000-word articles. Visual storytelling makes ideas more accessible—or so goes the adage “a picture is worth a thousand words.”
-            </div>
-            <div class="tile">
-                <h2>Tile 3</h2>
-                <p>
-                    GeeksforGeeks is a leading
-                    platform that provides computer
-                    science resources and coding
-                    challenges for programmers and
-                    technology enthusiasts
-                </p>
-            </div>
-            <div class="tile">
-                <h2>Tile 4</h2>
-                <p>
-                    GeeksforGeeks is a leading
-                    platform that provides computer
-                    science resources and coding
-                    challenges for programmers and
-                    technology enthusiasts
-                </p>
-            </div>
+  <main class="container py-5">
+    <section id="election-polls" class="py-5">
+      <h1 class="display-5 fw-bold">Aktuelle Umfragen zur Bundestagswahl</h1>
+      <p class="fs-4">Interaktive Diagramme mit den neuesten Umfragedaten.</p>
+      <div class="loader" id="spinner_plotly"></div>
+      <div class="loading_message" id="loading_message">Plot loading...</div>
+      <div class="py-script">
+        <div id="umfrage_graph"></div>
+      </div>
+      <script type="py" src="./main.py" config="./pyscript.json"></script>
     </section>
 
-  <hr>
-<!-- Matplotlib für aktuelle Umfragen>-->
+    <hr class="my-5">
 
-<h1>Aktuelle Umfrageergebnisse</h1>
-<!--hier muss immer eine Referenz auf das script sein, siehe script type="py"-->
-<section class ="py-script">
-            <div id="party_survey_mpl"></div>
-  <button id="plot-button" py-click="se" class="button" style="">Umfrage anzeigen</button>
-</section>
+    <section id="media-literacy" class="py-5">
+      <h1 class="display-5 fw-bold">Media Literacy Websites</h1>
+      <p class="fs-4">Verbessern Sie Ihre Fähigkeit, Fehlinformationen zu erkennen.</p>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/Bad_news.png" class="card-img-top" alt="Bad News Game">
+            <div class="card-body">
+              <h5 class="card-title">Bad News Game</h5>
+              <p class="card-text">From fake news to chaos! How bad are you? Get as many followers as you can.</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://www.getbadnews.com/en#intro" class="btn btn-primary">Play Game</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="img/pudding.png" class="card-img-top" alt="The Pudding">
+            <div class="card-body">
+              <h5 class="card-title">The Pudding</h5>
+              <p class="card-text">Visual essays are an emerging form of journalism that make ideas more accessible.</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://pudding.cool/" class="btn btn-primary">Explore Essays</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more cards as needed -->
+      </div>
+    </section>
+
+    <hr class="my-5">
+
+    <section id="party-survey" class="py-5">
+      <h1 class="display-5 fw-bold">Aktuelle Umfrageergebnisse</h1>
+      <p class="fs-4">Weitere Umfragedaten, visualisiert mit Matplotlib.</p>
+      <div class="py-script">
+        <div id="party_survey_mpl"></div>
+        <button id="plot-button" py-click="se" class="btn btn-secondary mt-3">Umfrage anzeigen</button>
+      </div>
+    </section>
+  </main>
 
 
-
+  <footer class="footer">
+    <div class="container text-center py-5">
+      <div class="social-icons">
+        <a href="#" class="text-decoration-none"><svg class="skype" width="24" height="24"><use xlink:href="#skype"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="snapchat" width="24" height="24"><use xlink:href="#snapchat"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="telegram" width="24" height="24"><use xlink:href="#telegram"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="tumblr" width="24" height="24"><use xlink:href="#tumblr"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="twitter" width="24" height="24"><use xlink:href="#twitter"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="whatsapp" width="24" height="24"><use xlink:href="#whatsapp"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="github" width="24" height="24"><use xlink:href="#github"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="facebook" width="24" height="24"><use xlink:href="#facebook"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="messenger" width="24" height="24"><use xlink:href="#messenger"></use></svg></a>
+        <a href="#" class="text-decoration-none"><svg class="behance" width="24" height="24"><use xlink:href="#behance"></use></svg></a>
+      </div>
+    </div>
+  </footer>
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="js/jquery-1.11.0.min.js"></script> <!-- jquery file-->
   <script src="js/plugins.js"></script>
   <script type="text/javascript" src="js/lightbox.min.js"></script>
   <script src="js/script.js"></script>
-</body>
 
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="skype" viewBox="0 0 24 24"><path d="M21.5,8.13A2.43,2.43,0,0,0,19,7.57,4.7,4.7,0,0,0,19,7c-2.48,0-4.49,2.08-4.49,4.64,0,2.56,2,4.64,4.49,4.64a4.57,4.57,0,0,0,3-1.05,2.43,2.43,0,0,0,2-2.13,4.8,4.8,0,0,0-.24-2A4.83,4.83,0,0,0,21.5,8.13Zm-2.54,6.8a2.1,2.1,0,0,1-2,2.06,2.1,2.1,0,0,1-2-2.06,2.08,2.08,0,0,1,2-2.06A2.08,2.08,0,0,1,18.96,14.93Zm-3.69-1a2.44,2.44,0,0,0-2.3-2.43,4.7,4.7,0,0,0-2.92.51,2.43,2.43,0,0,0-1.5,2.29A4.7,4.7,0,0,0,10.05,17a2.44,2.44,0,0,0,2.3,2.43,4.7,4.7,0,0,0,2.92-.51,2.43,2.43,0,0,0,1.5-2.29A4.7,4.7,0,0,0,15.27,13.9Zm-2.53,2.78a2.1,2.1,0,0,1-2,2.06,2.08,2.08,0,0,1-2-2.06,2.08,2.08,0,0,1,2-2.06A2.1,2.1,0,0,1,12.74,16.68Zm-4.59-1.22A2.44,2.44,0,0,0,5.84,13,4.7,4.7,0,0,0,2.92,13.5a2.43,2.43,0,0,0-1.5,2.29A4.7,4.7,0,0,0,2.92,18.5a2.44,2.44,0,0,0,2.3,2.43,4.7,4.7,0,0,0,2.92-.51,2.43,2.43,0,0,0,1.5-2.29A4.7,4.7,0,0,0,8.15,15.46Zm-2.53,2.78a2.08,2.08,0,0,1-2-2.06,2.08,2.08,0,0,1,2-2.06,2.1,2.1,0,0,1,2,2.06A2.1,2.1,0,0,1,5.62,18.24Z"/></symbol>
+    <symbol id="snapchat" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,1.68,5.47A10,10,0,0,0,12,22a9.89,9.89,0,0,0,8.32-4.53A10,10,0,0,0,22,12,10,10,0,0,0,12,2Zm3.41,12.11a1.2,1.2,0,0,1-1.2.89H9.79a1.2,1.2,0,0,1-1.2-.89L8,10.5H16Zm-7.53-.89H16.12l.6,2.28a1.2,1.2,0,0,1-1.2,1.5H8.48a1.2,1.2,0,0,1-1.2-1.5Z"/></symbol>
+    <symbol id="telegram" viewBox="0 0 24 24"><path d="M22,3.41,2,10.78l6.43,2.14L10.57,20,12,14.57,17.43,8,11.71,13.14,22,3.41Z"/></symbol>
+    <symbol id="tumblr" viewBox="0 0 24 24"><path d="M14,10.39V8.62a2.38,2.38,0,0,1,2.38-2.38h1.25V2.5H14a6.13,6.13,0,0,0-6.12,6.12v1.77H5.5V14H7.88v7.5h3.75V14h3.75l.62-3.61Z"/></symbol>
+    <symbol id="twitter" viewBox="0 0 24 24"><path d="M22,5.29a9.3,9.3,0,0,1-2.67.73A4.6,4.6,0,0,0,21.27,3.5a9.42,9.42,0,0,1-2.95,1.13A4.65,4.65,0,0,0,10,9.11,13.17,13.17,0,0,1,.45,3.22a4.63,4.63,0,0,0,1.43,6.18,4.59,4.59,0,0,1-2.1-.58v.06a4.65,4.65,0,0,0,3.73,4.56,4.6,4.6,0,0,1-2.09.08,4.64,4.64,0,0,0,4.34,3.22,9.31,9.31,0,0,1-5.77,2,9.48,9.48,0,0,1-1.11,0,13.11,13.11,0,0,0,7.1,2.08,13.08,13.08,0,0,0,13.1-13.1c0-.2,0-.4,0-.6A9.32,9.32,0,0,0,22,5.29Z"/></symbol>
+    <symbol id="whatsapp" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,1.68,5.47A10,10,0,0,0,12,22a9.89,9.89,0,0,0,8.32-4.53A10,10,0,0,0,22,12,10,10,0,0,0,12,2Zm3.41,12.11a1.2,1.2,0,0,1-1.2.89H9.79a1.2,1.2,0,0,1-1.2-.89L8,10.5H16Zm-7.53-.89H16.12l.6,2.28a1.2,1.2,0,0,1-1.2,1.5H8.48a1.2,1.2,0,0,1-1.2-1.5Z"/></symbol>
+    <symbol id="github" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,8.84,21.5c.5.08.68-.22.68-.48s0-.88,0-1.72c-2.78.6-3.37-1.34-3.37-1.34a2.63,2.63,0,0,0-1.1-1.45c-.9-.62.07-.6.07-.6a2.08,2.08,0,0,1,1.52,1,2.1,2.1,0,0,0,2.88.82,2.13,2.13,0,0,1,.63-1.34c-2.22-.25-4.55-1.11-4.55-4.94a3.87,3.87,0,0,1,1-2.71,3.58,3.58,0,0,1,.1-2.68s.84-.27,2.75,1a9.64,9.64,0,0,1,5,0c1.91-1.27,2.75-1,2.75-1a3.58,3.58,0,0,1,.1,2.68,3.87,3.87,0,0,1,1,2.71c0,3.84-2.33,4.68-4.55,4.93a2.38,2.38,0,0,1,.68,1.85c0,1.34,0,2.42,0,2.75s.18.57.68.48A10,10,0,0,0,12,2Z"/></symbol>
+    <symbol id="facebook" viewBox="0 0 24 24"><path d="M14,10.39V8.62a2.38,2.38,0,0,1,2.38-2.38h1.25V2.5H14a6.13,6.13,0,0,0-6.12,6.12v1.77H5.5V14H7.88v7.5h3.75V14h3.75l.62-3.61Z"/></symbol>
+    <symbol id="messenger" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,1.68,5.47A10,10,0,0,0,12,22a9.89,9.89,0,0,0,8.32-4.53A10,10,0,0,0,22,12,10,10,0,0,0,12,2Zm3.41,12.11a1.2,1.2,0,0,1-1.2.89H9.79a1.2,1.2,0,0,1-1.2-.89L8,10.5H16Zm-7.53-.89H16.12l.6,2.28a1.2,1.2,0,0,1-1.2,1.5H8.48a1.2,1.2,0,0,1-1.2-1.5Z"/></symbol>
+    <symbol id="behance" viewBox="0 0 24 24"><path d="M22,3.41,2,10.78l6.43,2.14L10.57,20,12,14.57,17.43,8,11.71,13.14,22,3.41Z"/></symbol>
+    <symbol id="menu" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></symbol>
+  </svg>
+</body>
